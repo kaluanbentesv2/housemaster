@@ -1,0 +1,17 @@
+@import "@/styles/variables.scss";
+
+.heading {
+  margin-bottom: 0.2rem;
+}
+
+.paragraph {
+  margin-bottom: 2rem;
+}
+
+.input {
+  margin-bottom: 1rem;
+
+  &:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
