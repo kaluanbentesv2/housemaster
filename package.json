@@ -20,6 +20,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^4.12.0",
     "resend": "^2.0.0",
     "sass": "^1.69.5"
   },

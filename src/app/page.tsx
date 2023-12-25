@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <main>
-      <h1>Housemaster</h1>
-    </main>
-  )
+import LoginView from "@/modules/auth/views/LoginView"
+
+export default function LoginPage() {
+  return <LoginView />
 }
