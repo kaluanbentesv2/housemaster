@@ -1,0 +1,52 @@
+.sideNav {
+  max-width: 16.25rem;
+  width: 100%;
+  background: white;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+  height: calc(100vh - 3.75rem);
+  position: absolute;
+  top: 0;
+  left: -16.25rem;
+  z-index: 3;
+  transition: 0.3s;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: 0.3s;
+  visibility: hidden;
+}
+
+.isOpen {
+  & .sideNav {
+    left: 0;
+  }
+
+  & .overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1rem;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.linkLabel {
+  margin: 0;
+  line-height: 0;
+}

@@ -4,16 +4,22 @@ import styles from "./AppBar.module.scss"
 
 interface AppBarProps {
   title: string
+  onMenuClick: () => void
+  onUserClick: () => void
 }
 
-export default function AppBar({ title }: AppBarProps) {
+export default function AppBar({
+  title,
+  onMenuClick,
+  onUserClick,
+}: AppBarProps) {
   return (
     <header className={styles.header}>
-      <button className={styles.iconButton}>
+      <button onClick={onMenuClick} className={styles.iconButton}>
         <BiMenu />
       </button>
       <h1 className={styles.title}>{title}</h1>
-      <button className={styles.iconButton}>
+      <button onClick={onUserClick} className={styles.iconButton}>
         <BiUser />
       </button>
     </header>
