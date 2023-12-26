@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  border-radius: 6px;
+  color: white;
+  align-items: center;
+  max-width: 400px;
+
+  & svg {
+    font-size: 162px;
+    margin-left: 10px;
+    fill: white;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  gap: 1.4rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.text {
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button {
+  color: rgba(255, 255, 255, 1);
+  border: 0;
+  outline: 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.paid {
+  background: rgb(101, 179, 70);
+
+  & .button {
+    background: rgb(76, 138, 52);
+  }
+}
+
+.pending {
+  background: rgb(240, 47, 47);
+
+  & .button {
+    background: rgb(180, 22, 22);
+  }
+}
