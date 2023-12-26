@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.main {
+  height: calc(100vh - 3.75rem);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 1rem;
+  flex: 1;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}

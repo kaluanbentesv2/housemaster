@@ -1,14 +1,19 @@
 .sideNav {
   max-width: 16.25rem;
+  min-width: 16.25rem;
   width: 100%;
   background: white;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
-  height: calc(100vh - 3.75rem);
-  position: absolute;
+  height: 100vh;
   top: 0;
-  left: -16.25rem;
+  left: 0;
   z-index: 3;
   transition: 0.3s;
+
+  @media (max-width: 1024px) {
+    position: absolute;
+    left: -16.25rem;
+  }
 }
 
 .overlay {
@@ -22,6 +27,10 @@
   opacity: 0;
   transition: 0.3s;
   visibility: hidden;
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
 }
 
 .isOpen {
@@ -35,18 +44,41 @@
   }
 }
 
+.static {
+  position: static;
+  left: 0;
+}
+
 .link {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1.3rem 1rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.875rem;
+  width: 100%;
+  background: transparent;
+  outline: 0;
+  border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  & svg {
+    fill: black;
+    font-size: 18px;
+  }
 }
 
 .linkLabel {
   margin: 0;
   line-height: 0;
+}
+
+.brand {
+  font-size: 1rem;
+  padding: 1.3rem 1rem;
+  margin: 0;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

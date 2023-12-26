@@ -2,22 +2,32 @@ import clsx from "clsx"
 import Link from "next/link"
 import { IconType } from "react-icons"
 
+import { BiPowerOff } from "react-icons/bi"
 import styles from "./SideNav.module.scss"
 
 interface SideNavProps {
+  isStatic?: boolean
   navItems: {
     label: string
     href: string
     icon: IconType
   }[]
   onClose: () => void
+  onLogout: () => void
   isOpen: boolean
 }
 
-export default function SideNav({ navItems, onClose, isOpen }: SideNavProps) {
+export default function SideNav({
+  isStatic = false,
+  navItems,
+  onClose,
+  onLogout,
+  isOpen,
+}: SideNavProps) {
   return (
-    <div className={clsx(isOpen && styles.isOpen)}>
+    <div className={clsx(isOpen && styles.isOpen, isStatic && styles.static)}>
       <nav className={styles.sideNav}>
+        <h2 className={styles.brand}>Housemaster</h2>
         {navItems.map((navItem) => {
           const LinkIcon = navItem.icon
 
@@ -32,6 +42,10 @@ export default function SideNav({ navItems, onClose, isOpen }: SideNavProps) {
             </Link>
           )
         })}
+        <button className={styles.link} onClick={onLogout}>
+          <BiPowerOff />
+          <p className={styles.linkLabel}>Sair</p>
+        </button>
       </nav>
       <button onClick={onClose} className={styles.overlay} />
     </div>
