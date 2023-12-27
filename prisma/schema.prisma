@@ -66,7 +66,14 @@ model House {
   street        String?
   number        String?
   users         User[]
+  type          HouseType
   housePayments HousePayment[]
+}
+
+enum HouseType {
+  RESIDENCE
+  POOLHOUSE
+  COMERCIAL
 }
 
 model HousePayment {

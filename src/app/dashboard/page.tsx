@@ -1,5 +1,5 @@
 import DashboardView from "@/modules/app/views/DashboardView"
 
-export default function LoginPage() {
+export default function DashboardPage() {
   return <DashboardView />
 }

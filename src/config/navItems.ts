@@ -8,7 +8,7 @@ const navItems = [
   },
   {
     label: "Mensalidades",
-    href: "/house-payments",
+    href: "/payments",
     icon: BiMoney,
   },
   {

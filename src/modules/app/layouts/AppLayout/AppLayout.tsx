@@ -7,6 +7,7 @@ import navItems from "@/config/navItems"
 import useBreakpoint from "@/hooks/useBreakpoint"
 
 import styles from "./AppLayout.module.scss"
+import "./global.scss"
 import AppBar from "../../components/AppBar"
 import SideNav from "../../components/SideNav"
 

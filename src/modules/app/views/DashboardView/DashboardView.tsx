@@ -1,13 +1,15 @@
+import Header from "@/components/Header"
 import Heading from "@/components/Heading"
 
-import styles from "./DashboardView.module.scss"
 import LatestPaymentCard from "../../components/LatestPaymentCard"
 import AppLayout from "../../layouts/AppLayout"
 
 export default function DashboardView() {
   return (
     <AppLayout title="Dashboard">
-      <Heading className={styles.title}>Dashboard</Heading>
+      <Header>
+        <Heading>Dashboard</Heading>
+      </Header>
       <LatestPaymentCard status="paid" />
     </AppLayout>
   )

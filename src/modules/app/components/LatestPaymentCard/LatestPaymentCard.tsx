@@ -1,4 +1,5 @@
 import clsx from "clsx"
+import Link from "next/link"
 import { BiHistory, BiLike } from "react-icons/bi"
 
 import styles from "./LatestPaymentCard.module.scss"
@@ -30,7 +31,9 @@ export default function LatestPaymentCard({ status }: LatestPaymentCardProps) {
       <div className={styles.content}>
         <h3 className={styles.title}>{content[status].title}</h3>
         <p className={styles.text}>{content[status].text}</p>
-        <button className={styles.button}>Ir para pagamentos</button>
+        <Link href="/payments" className={styles.button}>
+          Ir para pagamentos
+        </Link>
       </div>
     </article>
   )
