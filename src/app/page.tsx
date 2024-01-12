@@ -1,5 +1,9 @@
-import LoginView from "@/modules/auth/views/LoginView"
+import DashboardView from "@/modules/app/views/DashboardView"
 
-export default function LoginPage() {
-  return <LoginView />
+import verifyAuth from "@/modules/auth/actions/verifyAuth"
+
+export default async function DashboardPage() {
+  await verifyAuth()
+
+  return <DashboardView />
 }

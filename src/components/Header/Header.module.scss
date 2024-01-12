@@ -11,7 +11,8 @@
     justify-content: space-between;
     align-items: center;
 
-    & button {
+    & button,
+    & a {
       max-width: 16.25rem;
     }
   }

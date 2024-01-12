@@ -16,6 +16,22 @@ export default function CreateAccountView() {
         Preencha o formulário abaixo para cadastrar as informações de sua
         residência.
       </Paragraph>
+      <Input
+        className={styles.input}
+        id="name"
+        label="Nome Completo"
+        placeholder="Digite o seu nome completo"
+      />
+      <Select
+        className={styles.input}
+        id="type"
+        label="Tipo de imóvel"
+        placeholder="Selecione um tipo"
+      >
+        <option value="RESIDENCE">Residencial</option>
+        <option value="POOLHOUSE">Imóvel com piscina</option>
+        <option value="COMERCIAL">Comercial</option>
+      </Select>
       <Select
         className={styles.input}
         id="street"

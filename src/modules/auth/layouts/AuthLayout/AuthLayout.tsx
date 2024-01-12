@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ReactNode } from "react"
 
 import styles from "./AuthLayout.module.scss"
+import "./global.scss"
 
 interface AuthLayoutProps {
   children: ReactNode
@@ -11,7 +12,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <main className={styles.main}>
       <div className={styles.formBox}>
-        <form className={styles.form}>
+        <div className={styles.form}>
           <div className={styles.formImageBox}>
             <Image
               src="/logo.png"
@@ -21,15 +22,15 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
             />
           </div>
           {children}
-        </form>
+        </div>
       </div>
       <div className={styles.imageBox}>
         <Image
           className={styles.image}
           src="/logo.png"
           alt="Conjunto Parque das Palmeiras"
-          width={500}
-          height={500}
+          width={300}
+          height={300}
         />
       </div>
     </main>

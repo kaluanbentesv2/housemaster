@@ -12,6 +12,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  font-weight: 500;
 
   &:hover {
     background: $color-primary-variant;

@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import { signOut } from "next-auth/react"
 import { ReactNode, useState } from "react"
 
 import navItems from "@/config/navItems"
@@ -24,7 +25,7 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
 
   return (
     <div className={styles.wrapper}>
-      {["tablet", "mobile"].includes(breakpoint!) && (
+      {["mobile"].includes(breakpoint!) && (
         <AppBar
           title={title}
           onMenuClick={() => setIsOpen(true)}
@@ -36,7 +37,10 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
         isOpen={isOpen}
         navItems={navItems}
         onClose={() => setIsOpen(false)}
-        onLogout={() => alert("logout")}
+        onLogout={() => {
+          signOut()
+          router.push("/login")
+        }}
       />
       <main className={styles.main}>
         <div className={styles.container}>{children}</div>

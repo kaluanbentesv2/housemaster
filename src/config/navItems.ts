@@ -3,7 +3,7 @@ import { BiMoney, BiSolidDashboard, BiUser } from "react-icons/bi"
 const navItems = [
   {
     label: "Dashboard",
-    href: "/dashboard",
+    href: "/",
     icon: BiSolidDashboard,
   },
   {
