@@ -12,8 +12,8 @@ const navItems = [
     icon: BiMoney,
   },
   {
-    label: "Usuário",
-    href: "/user",
+    label: "Perfil",
+    href: "/profile",
     icon: BiUser,
   },
 ]

@@ -66,7 +66,7 @@ export default function LoginView() {
             type="email"
             placeholder="Digite seu email"
             error={errors.email?.message}
-            {...register("email", { required: true })}
+            {...register("email")}
           />
           <Button type="submit" isLoading={isLoading}>
             Entrar

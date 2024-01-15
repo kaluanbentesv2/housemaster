@@ -3,10 +3,10 @@ import { getServerSession } from "next-auth"
 
 import authOptions from "@/infra/next-auth/authOptions"
 
-import getUser from "./getUser"
+import getCurrentUser from "./getCurrentUser"
 
 export default async function verifyAuth() {
-  const user = await getUser()
+  const user = await getCurrentUser()
   const session = await getServerSession(authOptions)
 
   if (!session) {

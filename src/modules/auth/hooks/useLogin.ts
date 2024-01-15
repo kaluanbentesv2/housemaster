@@ -20,9 +20,10 @@ export default function useLogin() {
       })
 
       setIsSent(true)
-      setIsLoading(false)
     } catch (error: unknown) {
       console.log("Login error: ", error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
