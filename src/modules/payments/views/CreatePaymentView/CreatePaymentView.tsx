@@ -3,9 +3,9 @@ import Header from "@/components/Header"
 import Heading from "@/components/Heading"
 import Paper from "@/components/Paper"
 import Select from "@/components/Select"
+import AppLayout from "@/modules/app/layouts/AppLayout"
 
 import styles from "./CreatePaymentView.module.scss"
-import AppLayout from "../../layouts/AppLayout"
 
 export default function CreatePaymentView() {
   return (
