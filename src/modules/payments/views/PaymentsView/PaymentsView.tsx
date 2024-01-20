@@ -2,7 +2,7 @@ import Button from "@/components/Button"
 import Header from "@/components/Header"
 import Heading from "@/components/Heading"
 import { Table } from "@/components/Table"
-import AppLayout from "@/modules/app/layouts/AppLayout"
+import AppLayout from "@/layouts/AppLayout"
 
 export default function PaymentsView() {
   return (

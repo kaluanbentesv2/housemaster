@@ -7,7 +7,7 @@ import Heading from "@/components/Heading"
 import Paper from "@/components/Paper"
 import { HOUSE_TYPES, USER_ROLES } from "@/config/maps"
 import User from "@/models/User"
-import AppLayout from "@/modules/app/layouts/AppLayout"
+import AppLayout from "@/layouts/AppLayout"
 
 import styles from "./ProfileView.module.scss"
 import HouseCard from "../../components/HouseCard"

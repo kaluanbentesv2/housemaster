@@ -3,7 +3,7 @@ import Header from "@/components/Header"
 import Heading from "@/components/Heading"
 import Paper from "@/components/Paper"
 import Select from "@/components/Select"
-import AppLayout from "@/modules/app/layouts/AppLayout"
+import AppLayout from "@/layouts/AppLayout"
 
 import styles from "./CreatePaymentView.module.scss"
 

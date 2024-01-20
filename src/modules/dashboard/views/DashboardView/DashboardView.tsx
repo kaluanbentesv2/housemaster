@@ -1,7 +1,7 @@
 import Header from "@/components/Header"
 import Heading from "@/components/Heading"
 
-import AppLayout from "@/modules/app/layouts/AppLayout"
+import AppLayout from "@/layouts/AppLayout"
 import LatestPaymentCard from "../../components/LatestPaymentCard"
 
 export default function DashboardView() {
