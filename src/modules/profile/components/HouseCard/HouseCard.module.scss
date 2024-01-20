@@ -2,6 +2,12 @@
   padding: 1rem;
 }
 
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
 .street {
   margin: 0 0 1rem 0;
   font-weight: 500;

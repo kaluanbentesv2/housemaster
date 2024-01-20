@@ -32,9 +32,15 @@ export default function ProfileView({ user }: ProfileViewProps) {
         <Data label="Email" value={user.email} />
         <Data label="Permissão" value={USER_ROLES[user.role]} />
       </Paper>
-      <Heading className={styles.housesTitle} level={3}>
-        Casas
-      </Heading>
+      <Header className={styles.header}>
+        <Heading className={styles.housesTitle} level={3}>
+          Casas
+        </Heading>
+        <Button href="/payments/create-payment" isInline>
+          Adicionar
+        </Button>
+      </Header>
+
       <div className={styles.housesGrid}>
         {user.houses.map((house) => (
           <HouseCard
