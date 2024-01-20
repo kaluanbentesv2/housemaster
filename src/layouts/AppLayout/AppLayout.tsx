@@ -30,7 +30,7 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
         <AppBar
           title={title}
           onMenuClick={() => setIsOpen(true)}
-          onUserClick={() => router.push("/user")}
+          onUserClick={() => router.push("/profile")}
         />
       )}
       <SideNav
