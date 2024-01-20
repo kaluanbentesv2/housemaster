@@ -13,7 +13,7 @@ export default async function verifyAuth() {
     redirect("/login")
   }
 
-  if (!user?.houseId) {
+  if (!user?.houses.length) {
     redirect("/create-account")
   }
 }

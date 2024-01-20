@@ -15,6 +15,7 @@ interface ButtonProps {
   href?: string
   onClick?: () => void
   isLoading?: boolean
+  isInline?: boolean
 }
 
 export default function Button({
@@ -24,10 +25,14 @@ export default function Button({
   href,
   onClick,
   isLoading,
+  isInline,
 }: ButtonProps) {
   if (href) {
     return (
-      <Link className={clsx(styles.button, className)} href={href}>
+      <Link
+        className={clsx(styles.button, className, isInline && styles.inline)}
+        href={href}
+      >
         {isLoading ? <Spinner /> : children}
       </Link>
     )
@@ -36,7 +41,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={clsx(styles.button, className)}
+      className={clsx(styles.button, className, isInline && styles.inline)}
       onClick={onClick}
     >
       {isLoading ? <Spinner /> : children}

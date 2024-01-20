@@ -6,7 +6,7 @@ import CreateAccountView from "@/modules/auth/views/CreateAccountView"
 export default async function LoginPage() {
   const user = await getCurrentUser()
 
-  if (user?.houseId) {
+  if (user?.houses.length) {
     redirect("/")
   }
 

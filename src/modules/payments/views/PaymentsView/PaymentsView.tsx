@@ -9,7 +9,9 @@ export default function PaymentsView() {
     <AppLayout title="Dashboard">
       <Header>
         <Heading>Mensalidades</Heading>
-        <Button href="/payments/create-payment">Pagar mensalidade</Button>
+        <Button href="/payments/create-payment" isInline>
+          Pagar mensalidade
+        </Button>
       </Header>
       <Table>
         <thead>

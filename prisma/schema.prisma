@@ -44,8 +44,7 @@ model User {
   role          Role      @default(RESIDENT)
   accounts      Account[]
   sessions      Session[]
-  houseId       String?
-  house         House?    @relation(fields: [houseId], references: [id], onDelete: Cascade)
+  houses        House[]
 }
 
 enum Role {
@@ -65,9 +64,10 @@ model House {
   id            String         @id @default(cuid())
   street        String?
   number        String?
-  users         User[]
+  userId       String
   type          HouseType
   housePayments HousePayment[]
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 enum HouseType {

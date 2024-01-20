@@ -1,5 +1,6 @@
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
+import showToast from "@/utils/showToast"
 
 export interface LoginData {
   name: string
@@ -25,13 +26,12 @@ export default function useCreateAccount() {
       })
       const result = await response.json()
 
-      if (result.id) {
+      if (result.house.id) {
+        showToast("Cadastro concluido com sucesso")
         router.push("/")
       }
     } catch (error: unknown) {
       console.log("Login error: ", error)
-    } finally {
-      setIsLoading(false)
     }
   }
 

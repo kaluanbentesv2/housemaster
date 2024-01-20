@@ -3,7 +3,7 @@ import { Theme } from "next-auth"
 export default function html(params: { url: string; theme: Theme }) {
   const { url, theme } = params
 
-  const brandColor = theme.brandColor || "#346df1"
+  const brandColor = "black"
   const color = {
     background: "#f9f9f9",
     text: "#444",

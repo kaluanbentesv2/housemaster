@@ -17,8 +17,8 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
             <Image
               src="/logo.png"
               alt="Conjunto Parque das Palmeiras"
-              width={100}
-              height={100}
+              width={180}
+              height={180}
             />
           </div>
           {children}
