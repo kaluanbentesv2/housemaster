@@ -2,7 +2,7 @@ import clsx from "clsx"
 import Link from "next/link"
 import { IconType } from "react-icons"
 
-import { BiPowerOff } from "react-icons/bi"
+import { BiHome, BiPowerOff } from "react-icons/bi"
 import styles from "./SideNav.module.scss"
 
 interface SideNavProps {
@@ -50,6 +50,13 @@ export default function SideNav({
         <button className={styles.link} onClick={onLogout}>
           <BiPowerOff />
           <p className={styles.linkLabel}>Sair</p>
+        </button>
+        <button
+          className={clsx(styles.link, styles.houseButton)}
+          onClick={onLogout}
+        >
+          <BiHome />
+          <p className={styles.linkLabel}>Casa 273</p>
         </button>
       </nav>
       <button onClick={onClose} className={styles.overlay} />

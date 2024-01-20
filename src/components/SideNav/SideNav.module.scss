@@ -11,6 +11,7 @@
   left: 0;
   z-index: 3;
   transition: 0.3s;
+  position: relative;
 
   @media (max-width: $breakpoint-desktop-max) {
     position: absolute;
@@ -89,6 +90,11 @@
     color: black;
     font-weight: 600;
   }
+}
+
+.houseButton {
+  position: absolute;
+  bottom: 0;
 }
 
 .brand {
