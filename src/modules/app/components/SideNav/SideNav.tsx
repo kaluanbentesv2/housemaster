@@ -7,6 +7,7 @@ import styles from "./SideNav.module.scss"
 
 interface SideNavProps {
   isStatic?: boolean
+  pathname: string
   navItems: {
     label: string
     href: string
@@ -20,6 +21,7 @@ interface SideNavProps {
 export default function SideNav({
   isStatic = false,
   navItems,
+  pathname,
   onClose,
   onLogout,
   isOpen,
@@ -33,7 +35,10 @@ export default function SideNav({
 
           return (
             <Link
-              className={styles.link}
+              className={clsx(
+                styles.link,
+                pathname === navItem.href && styles.linkActive
+              )}
               key={navItem.label}
               href={navItem.href}
             >

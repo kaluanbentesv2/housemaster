@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { signOut } from "next-auth/react"
 import { ReactNode, useState } from "react"
 
@@ -20,6 +20,7 @@ interface AppLayoutProps {
 export default function AppLayout({ title, children }: AppLayoutProps) {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
+  const pathname = usePathname()
 
   const breakpoint = useBreakpoint()
 
@@ -37,6 +38,7 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
         isOpen={isOpen}
         navItems={navItems}
         onClose={() => setIsOpen(false)}
+        pathname={pathname}
         onLogout={() => {
           signOut()
           router.push("/login")

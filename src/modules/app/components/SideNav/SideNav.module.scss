@@ -84,6 +84,13 @@
   }
 }
 
+.linkActive {
+  & .linkLabel {
+    color: black;
+    font-weight: 600;
+  }
+}
+
 .brand {
   font-size: 1.175rem;
   padding: 1.3rem 1rem;
