@@ -34,7 +34,6 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
         />
       )}
       <SideNav
-        isStatic
         isOpen={isOpen}
         navItems={navItems}
         onClose={() => setIsOpen(false)}

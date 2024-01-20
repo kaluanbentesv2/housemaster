@@ -6,7 +6,6 @@ import { BiHome, BiPowerOff } from "react-icons/bi"
 import styles from "./SideNav.module.scss"
 
 interface SideNavProps {
-  isStatic?: boolean
   pathname: string
   navItems: {
     label: string
@@ -19,7 +18,6 @@ interface SideNavProps {
 }
 
 export default function SideNav({
-  isStatic = false,
   navItems,
   pathname,
   onClose,
@@ -27,7 +25,7 @@ export default function SideNav({
   isOpen,
 }: SideNavProps) {
   return (
-    <div className={clsx(isOpen && styles.isOpen, isStatic && styles.static)}>
+    <div className={clsx(styles.container, isOpen && styles.isOpen)}>
       <nav className={styles.sideNav}>
         <h2 className={styles.brand}>Housemaster</h2>
         {navItems.map((navItem) => {

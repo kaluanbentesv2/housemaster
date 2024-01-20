@@ -7,11 +7,3 @@
 .Toastify__toast-container {
   font-family: "Poppins", sans-serif !important;
 }
-
-body {
-  margin-top: 60px;
-
-  @media (min-width: $breakpoint-desktop-min) {
-    margin-top: 0;
-  }
-}

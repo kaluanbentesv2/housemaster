@@ -1,5 +1,20 @@
 @import "@/styles/variables.scss";
 
+.container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+
+  @media (min-width: $breakpoint-desktop-min) {
+    visibility: visible;
+    position: static;
+    width: initial;
+  }
+}
+
 .sideNav {
   max-width: 16.25rem;
   min-width: 16.25rem;
@@ -37,6 +52,8 @@
 }
 
 .isOpen {
+  visibility: visible;
+
   & .sideNav {
     left: 0;
   }
