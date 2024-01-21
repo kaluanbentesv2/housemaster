@@ -1,4 +1,5 @@
 import { HouseType } from "@prisma/client"
+import clsx from "clsx"
 import Dropdown from "@/components/Dropdown"
 
 import { HOUSE_TYPES } from "@/config/maps"
@@ -35,7 +36,11 @@ export default function HouseCard({
   ]
 
   return (
-    <button onClick={onClick} className={styles.container} type="button">
+    <button
+      onClick={onClick}
+      className={clsx(styles.container, !onClick && styles.noAction)}
+      type="button"
+    >
       <header className={styles.header}>
         <h4 className={styles.number}>{number}</h4>
         {Boolean(menuItems[0].action) && <Dropdown items={menuItems} />}

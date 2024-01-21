@@ -1,21 +1,21 @@
 import { BiMoney, BiSolidDashboard, BiUser } from "react-icons/bi"
 
-const navItems = [
+const appNavItems = [
   {
     label: "Dashboard",
-    href: "/",
+    href: "/app",
     icon: BiSolidDashboard,
   },
   {
     label: "Mensalidades",
-    href: "/payments",
+    href: "/app/payments",
     icon: BiMoney,
   },
   {
     label: "Perfil",
-    href: "/profile",
+    href: "/app/profile",
     icon: BiUser,
   },
 ]
 
-export default navItems
+export default appNavItems

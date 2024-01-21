@@ -42,8 +42,8 @@ export default function SelectHouseView({ houses }: SelectHouseViewProps) {
             number={house.number}
             type={house.type}
             onClick={() => {
-              setState("house", house.id)
-              router.push("/")
+              setState("house", house)
+              router.back()
             }}
           />
         ))}

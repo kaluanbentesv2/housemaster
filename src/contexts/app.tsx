@@ -8,6 +8,7 @@ import {
   useEffect,
   useState,
 } from "react"
+import User from "@/models/User"
 
 interface AppState {
   house?: string
@@ -29,11 +30,12 @@ export const AppDispatchContext = createContext<AppDispatch>({
 
 interface AppProviderProps {
   children: ReactNode
+  user: User
 }
 
 const STORAGE_KEY = "housemaster.app"
 
-export function AppProvider({ children }: AppProviderProps) {
+export function AppProvider({ children, user }: AppProviderProps) {
   const [app, setApp] = useState(appDefaultState)
   const [isDataReady, setIsDataReady] = useState(false)
   const router = useRouter()
@@ -50,10 +52,10 @@ export function AppProvider({ children }: AppProviderProps) {
   }
 
   useEffect(() => {
-    if (!app.house && isDataReady) {
+    if (!app.house && isDataReady && user?.houses?.length) {
       router.push("/app/profile/select-house")
     }
-  }, [app, router, isDataReady])
+  }, [app, router, isDataReady, user])
 
   useEffect(() => {
     const session = sessionStorage.getItem(STORAGE_KEY)

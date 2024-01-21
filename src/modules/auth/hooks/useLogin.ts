@@ -16,7 +16,7 @@ export default function useLogin() {
       await signIn("email", {
         email: data.email,
         redirect: false,
-        callbackUrl: "/create-account",
+        callbackUrl: "/auth/create-account",
       })
 
       setIsSent(true)

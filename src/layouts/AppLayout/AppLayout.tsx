@@ -4,9 +4,10 @@ import { usePathname, useRouter } from "next/navigation"
 import { signOut } from "next-auth/react"
 import { ReactNode, useState } from "react"
 
-import navItems from "@/config/navItems"
+import appNavItems from "@/config/appNavItems"
 import { useApp } from "@/contexts/app"
 import useBreakpoint from "@/hooks/useBreakpoint"
+import House from "@/models/House"
 
 import styles from "./AppLayout.module.scss"
 import "./global.scss"
@@ -23,7 +24,7 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
   const router = useRouter()
   const pathname = usePathname()
   const { app } = useApp()
-
+  const house = app.house as unknown as House
   const breakpoint = useBreakpoint()
 
   return (
@@ -37,8 +38,8 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
       )}
       <SideNav
         isOpen={isOpen}
-        house={app.house!}
-        navItems={navItems}
+        house={house?.number}
+        navItems={appNavItems}
         onClose={() => setIsOpen(false)}
         pathname={pathname}
         onSelectHouse={() => router.push("/app/profile/select-house")}

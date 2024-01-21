@@ -1,5 +1,7 @@
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+
+import { useApp } from "@/contexts/app"
 import showToast from "@/utils/showToast"
 
 export interface LoginData {
@@ -12,6 +14,7 @@ export interface LoginData {
 export default function useCreateAccount() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { setState } = useApp()
 
   const createAccount = async (data: LoginData) => {
     try {
@@ -27,11 +30,14 @@ export default function useCreateAccount() {
       const result = await response.json()
 
       if (result.house.id) {
+        setState("house", result.house)
         showToast("Cadastro concluido com sucesso")
-        router.push("/")
+        router.push("/app")
       }
     } catch (error: unknown) {
       console.log("Login error: ", error)
+    } finally {
+      setIsLoading(false)
     }
   }
 

@@ -1,8 +1,8 @@
 import clsx from "clsx"
 import Link from "next/link"
 import { IconType } from "react-icons"
-
 import { BiHome, BiPowerOff } from "react-icons/bi"
+
 import styles from "./SideNav.module.scss"
 
 interface SideNavProps {
