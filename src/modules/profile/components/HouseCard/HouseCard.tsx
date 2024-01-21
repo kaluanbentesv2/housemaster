@@ -1,34 +1,47 @@
+import { HouseType } from "@prisma/client"
 import Dropdown from "@/components/Dropdown"
-import Paper from "@/components/Paper"
 
+import { HOUSE_TYPES } from "@/config/maps"
 import styles from "./HouseCard.module.scss"
 
 interface HouseCardProps {
   street: string
   number: string
-  type: string
+  type: HouseType
+  onClick?: () => void
+  onRemove?: () => void
+  onEdit?: () => void
 }
 
-const menuItems = [
-  {
-    label: "Editar",
-    value: "edit",
-  },
-  {
-    label: "Remover",
-    value: "remove",
-  },
-]
+export default function HouseCard({
+  street,
+  number,
+  type,
+  onClick,
+  onRemove,
+  onEdit,
+}: HouseCardProps) {
+  const menuItems = [
+    {
+      label: "Editar",
+      value: "edit",
+      action: onEdit,
+    },
+    {
+      label: "Remover",
+      value: "remove",
+      action: onRemove,
+    },
+  ]
 
-export default function HouseCard({ street, number, type }: HouseCardProps) {
   return (
-    <Paper className={styles.container}>
+    <button onClick={onClick} className={styles.container} type="button">
       <header className={styles.header}>
         <h4 className={styles.number}>{number}</h4>
-        <Dropdown items={menuItems} />
+        {Boolean(menuItems[0].action) && <Dropdown items={menuItems} />}
       </header>
       <p className={styles.street}>{street}</p>
-      <p className={styles.type}>{type}</p>
-    </Paper>
+      <p className={styles.type}>{HOUSE_TYPES[type]}</p>
+    </button>
   )
 }

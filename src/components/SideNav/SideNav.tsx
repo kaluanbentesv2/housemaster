@@ -6,6 +6,8 @@ import { BiHome, BiPowerOff } from "react-icons/bi"
 import styles from "./SideNav.module.scss"
 
 interface SideNavProps {
+  isOpen: boolean
+  house: string
   pathname: string
   navItems: {
     label: string
@@ -14,15 +16,17 @@ interface SideNavProps {
   }[]
   onClose: () => void
   onLogout: () => void
-  isOpen: boolean
+  onSelectHouse: () => void
 }
 
 export default function SideNav({
+  isOpen,
+  house,
   navItems,
   pathname,
   onClose,
   onLogout,
-  isOpen,
+  onSelectHouse,
 }: SideNavProps) {
   return (
     <div className={clsx(styles.container, isOpen && styles.isOpen)}>
@@ -51,10 +55,10 @@ export default function SideNav({
         </button>
         <button
           className={clsx(styles.link, styles.houseButton)}
-          onClick={onLogout}
+          onClick={onSelectHouse}
         >
           <BiHome />
-          <p className={styles.linkLabel}>Casa 273</p>
+          <p className={styles.linkLabel}>Casa {house}</p>
         </button>
       </nav>
       <button onClick={onClose} className={styles.overlay} />

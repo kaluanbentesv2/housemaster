@@ -1,8 +1,7 @@
-import verifyAuth from "@/modules/auth/actions/verifyAuth"
-import DashboardView from "@/modules/dashboard/views/DashboardView"
+import { redirect } from "next/navigation"
 
-export default async function DashboardPage() {
-  await verifyAuth()
+export default function Index() {
+  redirect("/app")
 
-  return <DashboardView />
+  return null
 }

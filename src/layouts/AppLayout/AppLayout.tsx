@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react"
 import { ReactNode, useState } from "react"
 
 import navItems from "@/config/navItems"
+import { useApp } from "@/contexts/app"
 import useBreakpoint from "@/hooks/useBreakpoint"
 
 import styles from "./AppLayout.module.scss"
@@ -21,6 +22,7 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
+  const { app } = useApp()
 
   const breakpoint = useBreakpoint()
 
@@ -35,9 +37,11 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
       )}
       <SideNav
         isOpen={isOpen}
+        house={app.house!}
         navItems={navItems}
         onClose={() => setIsOpen(false)}
         pathname={pathname}
+        onSelectHouse={() => router.push("/app/profile/select-house")}
         onLogout={() => {
           signOut()
           router.push("/login")

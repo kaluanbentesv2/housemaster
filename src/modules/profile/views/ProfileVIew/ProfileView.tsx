@@ -5,7 +5,7 @@ import Data from "@/components/Data"
 import Header from "@/components/Header"
 import Heading from "@/components/Heading"
 import Paper from "@/components/Paper"
-import { HOUSE_TYPES, USER_ROLES } from "@/config/maps"
+import { USER_ROLES } from "@/config/maps"
 import AppLayout from "@/layouts/AppLayout"
 import User from "@/models/User"
 
@@ -47,7 +47,7 @@ export default function ProfileView({ user }: ProfileViewProps) {
             key={house.id}
             street={house.street}
             number={house.number}
-            type={HOUSE_TYPES[house.type]}
+            type={house.type}
           />
         ))}
       </div>

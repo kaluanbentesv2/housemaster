@@ -7,6 +7,7 @@ interface DropdownProps {
   items: {
     label: string
     value: string
+    action?: () => void
   }[]
 }
 
@@ -21,7 +22,11 @@ export default function Dropdown({ items }: DropdownProps) {
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={styles.menu} align="end">
           {items.map((item, index) => (
-            <DropdownMenu.Item key={index} className={styles.menuItem}>
+            <DropdownMenu.Item
+              onSelect={item.action}
+              key={index}
+              className={styles.menuItem}
+            >
               {item.label}
             </DropdownMenu.Item>
           ))}

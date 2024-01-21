@@ -1,5 +1,10 @@
+@import "@/styles/mixins.scss";
+
 .container {
   padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  @include paper;
 }
 
 .header {
