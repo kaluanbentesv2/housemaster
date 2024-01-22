@@ -14,6 +14,7 @@ interface InputProps {
   value?: string
   name?: string
   type?: string
+  isDisabled?: boolean
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -27,6 +28,7 @@ const Input = forwardRef(function Input(
     value,
     name,
     type,
+    isDisabled,
     onChange,
   }: InputProps,
   ref
@@ -37,6 +39,7 @@ const Input = forwardRef(function Input(
         {label}
       </label>
       <input
+        disabled={isDisabled}
         onChange={onChange}
         value={value}
         className={styles.input}

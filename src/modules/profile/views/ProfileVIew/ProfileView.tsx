@@ -23,7 +23,7 @@ export default function ProfileView({ user }: ProfileViewProps) {
     <AppLayout title={TITLE}>
       <Header className={styles.header}>
         <Heading>{TITLE}</Heading>
-        <Button href="/payments/create-payment" isInline>
+        <Button href="/app/profile/edit" isInline>
           Editar
         </Button>
       </Header>
@@ -36,7 +36,7 @@ export default function ProfileView({ user }: ProfileViewProps) {
         <Heading className={styles.housesTitle} level={3}>
           Casas
         </Heading>
-        <Button href="/payments/create-payment" isInline>
+        <Button href="/app/profile/add-house" isInline>
           Adicionar
         </Button>
       </Header>
