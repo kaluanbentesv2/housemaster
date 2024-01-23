@@ -36,7 +36,7 @@ export default function ProfileView({ user }: ProfileViewProps) {
         <Heading className={styles.housesTitle} level={3}>
           Casas
         </Heading>
-        <Button href="/app/profile/add-house" isInline>
+        <Button href="/app/profile/create-house" isInline>
           Adicionar
         </Button>
       </Header>

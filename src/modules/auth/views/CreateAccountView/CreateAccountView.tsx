@@ -9,6 +9,7 @@ import Heading from "@/components/Heading"
 import Input from "@/components/Input"
 import Paragraph from "@/components/Paragraph"
 import Select from "@/components/Select"
+import houseTypes from "@/data/houseTypes"
 import streets from "@/data/streets"
 
 import styles from "./CreateAccountView.module.scss"
@@ -64,9 +65,11 @@ export default function CreateAccountView() {
           error={errors.houseType?.message}
           {...register("houseType")}
         >
-          <option value="RESIDENCE">Residencial</option>
-          <option value="POOLHOUSE">Imóvel com piscina</option>
-          <option value="COMERCIAL">Comercial</option>
+          {houseTypes.map((houseType) => (
+            <option key={houseType.value} value={houseType.value}>
+              {houseType.label}
+            </option>
+          ))}
         </Select>
         <Select
           className={styles.input}
