@@ -13,7 +13,11 @@ export default async function getCurrentUser() {
       email,
     },
     include: {
-      houses: true,
+      houses: {
+        orderBy: {
+          updatedAt: "desc",
+        },
+      },
     },
   })) as unknown as User
 
