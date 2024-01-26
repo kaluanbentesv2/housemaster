@@ -1,4 +1,9 @@
-import { BiMoney, BiSolidDashboard, BiUser } from "react-icons/bi"
+import {
+  BiBuildingHouse,
+  BiMoney,
+  BiSolidDashboard,
+  BiUser,
+} from "react-icons/bi"
 
 const appNavItems = [
   {
@@ -7,9 +12,14 @@ const appNavItems = [
     icon: BiSolidDashboard,
   },
   {
-    label: "Mensalidades",
+    label: "Pagamentos",
     href: "/app/payments",
     icon: BiMoney,
+  },
+  {
+    label: "Casas",
+    href: "/app/houses",
+    icon: BiBuildingHouse,
   },
   {
     label: "Perfil",

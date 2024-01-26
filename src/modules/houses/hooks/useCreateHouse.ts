@@ -27,7 +27,7 @@ export default function useCreateHouse() {
 
       if (resultData) {
         showToast(`A casa ${resultData.number} foi criada com sucesso`)
-        router.push("/app/profile")
+        router.push("/app/houses?refresh=true")
       }
     } catch (error: unknown) {
       console.error("createHouse: ", error)

@@ -10,7 +10,6 @@ import AppLayout from "@/layouts/AppLayout"
 import User from "@/models/User"
 
 import styles from "./ProfileView.module.scss"
-import HouseCard from "../../components/HouseCard"
 
 interface ProfileViewProps {
   user: User
@@ -32,25 +31,6 @@ export default function ProfileView({ user }: ProfileViewProps) {
         <Data label="Email" value={user.email} />
         <Data label="Permissão" value={USER_ROLES[user.role]} />
       </Paper>
-      <Header className={styles.header}>
-        <Heading className={styles.housesTitle} level={3}>
-          Casas
-        </Heading>
-        <Button href="/app/profile/create-house" isInline>
-          Adicionar
-        </Button>
-      </Header>
-
-      <div className={styles.housesGrid}>
-        {user.houses.map((house) => (
-          <HouseCard
-            key={house.id}
-            street={house.street}
-            number={house.number}
-            type={house.type}
-          />
-        ))}
-      </div>
     </AppLayout>
   )
 }

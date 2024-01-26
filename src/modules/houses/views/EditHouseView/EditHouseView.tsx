@@ -13,11 +13,16 @@ import Select from "@/components/Select"
 import houseTypes from "@/data/houseTypes"
 import streets from "@/data/streets"
 import AppLayout from "@/layouts/AppLayout"
+import House from "@/models/House"
 
-import styles from "./CreateHouseView.module.scss"
+import styles from "./EditHouseView.module.scss"
 import useCreateHouse, { CreateHousePayload } from "../../hooks/useCreateHouse"
 
-const editProfileSchema = Yup.object({
+interface EditHouseViewProps {
+  house: House
+}
+
+const editHouseSchema = Yup.object({
   street: Yup.string().required("Este campo é obrigatório"),
   number: Yup.string().required("Este campo é obrigatório"),
   type: Yup.string().required("Este campo é obrigatório"),
@@ -25,7 +30,7 @@ const editProfileSchema = Yup.object({
 
 const TITLE = "Editar perfil"
 
-export default function CreateHouseView() {
+export default function EditHouseView({ house }: EditHouseViewProps) {
   const { createHouse, isLoading } = useCreateHouse()
 
   const {
@@ -33,7 +38,12 @@ export default function CreateHouseView() {
     handleSubmit,
     formState: { errors },
   } = useForm<CreateHousePayload>({
-    resolver: yupResolver(editProfileSchema),
+    resolver: yupResolver(editHouseSchema),
+    defaultValues: {
+      street: house.street,
+      number: house.number,
+      type: house.type,
+    },
   })
 
   return (

@@ -11,7 +11,7 @@ export default function CreatePaymentView() {
   return (
     <AppLayout title="Dashboard">
       <Header>
-        <Heading>Pagar mensalidade</Heading>
+        <Heading>Pagar</Heading>
       </Header>
       <Paper className={styles.box}>
         <Select id="year" label="Qual ano?">

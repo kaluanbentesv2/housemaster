@@ -53,7 +53,7 @@ export function AppProvider({ children, user }: AppProviderProps) {
 
   useEffect(() => {
     if (!app.house && isDataReady && user?.houses?.length) {
-      router.push("/app/profile/select-house")
+      router.push("/app/houses/select")
     }
   }, [app, router, isDataReady, user])
 

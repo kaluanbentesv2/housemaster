@@ -42,7 +42,7 @@ export default function AppLayout({ title, children }: AppLayoutProps) {
         navItems={appNavItems}
         onClose={() => setIsOpen(false)}
         pathname={pathname}
-        onSelectHouse={() => router.push("/app/profile/select-house")}
+        onSelectHouse={() => router.push("/app/houses/select")}
         onLogout={() => {
           signOut()
           router.push("/login")

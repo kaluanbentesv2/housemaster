@@ -10,7 +10,7 @@ export default function PaymentsView() {
       <Header>
         <Heading>Mensalidades</Heading>
         <Button href="/payments/create-payment" isInline>
-          Pagar mensalidade
+          Pagar
         </Button>
       </Header>
       <Table>

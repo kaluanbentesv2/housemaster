@@ -1,9 +1,11 @@
 import { HouseType } from "@prisma/client"
 import clsx from "clsx"
-import Dropdown from "@/components/Dropdown"
 
+import Dropdown from "@/components/Dropdown"
 import { HOUSE_TYPES } from "@/config/maps"
+
 import styles from "./HouseCard.module.scss"
+import HouseCardSkeleton from "./HouseCard.skeleton"
 
 interface HouseCardProps {
   street: string
@@ -50,3 +52,5 @@ export default function HouseCard({
     </button>
   )
 }
+
+HouseCard.Skeleton = HouseCardSkeleton
