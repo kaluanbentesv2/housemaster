@@ -34,6 +34,8 @@ export default function HouseListView({ houses = [] }: HouseListViewProps) {
           street={house.street}
           number={house.number}
           type={house.type}
+          onRemove={() => {}}
+          onEdit={() => router.push(`/app/houses/edit/${house.id}`)}
         />
       ))
     )

@@ -16,7 +16,7 @@ import AppLayout from "@/layouts/AppLayout"
 import House from "@/models/House"
 
 import styles from "./EditHouseView.module.scss"
-import useCreateHouse, { CreateHousePayload } from "../../hooks/useCreateHouse"
+import useUpdateHouse, { UpdateHousePayload } from "../../hooks/useUpdateHouse"
 
 interface EditHouseViewProps {
   house: House
@@ -31,13 +31,13 @@ const editHouseSchema = Yup.object({
 const TITLE = "Editar perfil"
 
 export default function EditHouseView({ house }: EditHouseViewProps) {
-  const { createHouse, isLoading } = useCreateHouse()
+  const { updateHouse, isLoading } = useUpdateHouse()
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateHousePayload>({
+  } = useForm<UpdateHousePayload>({
     resolver: yupResolver(editHouseSchema),
     defaultValues: {
       street: house.street,
@@ -48,7 +48,7 @@ export default function EditHouseView({ house }: EditHouseViewProps) {
 
   return (
     <AppLayout title={TITLE}>
-      <form onSubmit={handleSubmit(createHouse)}>
+      <form onSubmit={handleSubmit(updateHouse(house.id))}>
         <Header className={styles.header}>
           <Heading>{TITLE}</Heading>
           <Button type="submit" isInline isLoading={isLoading}>

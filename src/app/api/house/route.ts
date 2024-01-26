@@ -26,3 +26,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ error })
   }
 }
+
+export async function PATCH(request: Request) {
+  try {
+    const body = await request.json()
+
+    await prisma.house.update({
+      where: {
+        id: body.id,
+      },
+      data: {
+        street: body.street,
+        number: body.number,
+        type: body.type,
+      },
+    })
+
+    return NextResponse.json(body)
+  } catch (error: unknown) {
+    return NextResponse.json({ error })
+  }
+}

@@ -1,5 +1,6 @@
 import { HouseType } from "@prisma/client"
 import clsx from "clsx"
+import { BiDotsVerticalRounded } from "react-icons/bi"
 
 import Dropdown from "@/components/Dropdown"
 import { HOUSE_TYPES } from "@/config/maps"
@@ -45,7 +46,15 @@ export default function HouseCard({
     >
       <header className={styles.header}>
         <h4 className={styles.number}>{number}</h4>
-        {Boolean(menuItems[0].action) && <Dropdown items={menuItems} />}
+        {Boolean(menuItems[0].action) && (
+          <Dropdown trigger={<BiDotsVerticalRounded />}>
+            {menuItems.map((item, index) => (
+              <Dropdown.Item key={index} onSelect={item.action!}>
+                {item.label}
+              </Dropdown.Item>
+            ))}
+          </Dropdown>
+        )}
       </header>
       <p className={styles.street}>{street}</p>
       <p className={styles.type}>{HOUSE_TYPES[type]}</p>

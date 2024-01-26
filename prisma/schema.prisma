@@ -68,6 +68,7 @@ model House {
   type          HouseType
   housePayments HousePayment[]
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  updatedAt DateTime @updatedAt
 }
 
 enum HouseType {
