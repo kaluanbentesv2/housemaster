@@ -39,10 +39,11 @@ export default function HouseCard({
   ]
 
   return (
-    <button
+    <div
       onClick={onClick}
       className={clsx(styles.container, !onClick && styles.noAction)}
-      type="button"
+      role="button"
+      tabIndex={0}
     >
       <header className={styles.header}>
         <h4 className={styles.number}>{number}</h4>
@@ -58,7 +59,7 @@ export default function HouseCard({
       </header>
       <p className={styles.street}>{street}</p>
       <p className={styles.type}>{HOUSE_TYPES[type]}</p>
-    </button>
+    </div>
   )
 }
 

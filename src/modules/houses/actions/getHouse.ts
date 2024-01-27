@@ -1,4 +1,4 @@
-import prisma from "@/infra/database/prisma"
+import prisma from "@/infra/prisma/prisma"
 import House from "@/models/House"
 
 export default async function getHouse(id: string) {

@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth"
 
-import prisma from "@/infra/database/prisma"
+import prisma from "@/infra/prisma/prisma"
 import authOptions from "@/infra/next-auth/authOptions"
 import User from "@/models/User"
 
