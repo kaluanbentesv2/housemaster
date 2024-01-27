@@ -47,3 +47,19 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error })
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const body = await request.json()
+
+    const result = await prisma.house.delete({
+      where: {
+        id: body.id,
+      },
+    })
+
+    return NextResponse.json(result)
+  } catch (error: unknown) {
+    return NextResponse.json({ error })
+  }
+}

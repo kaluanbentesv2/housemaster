@@ -1,3 +1,5 @@
+@import "@/styles/variables.scss";
+
 .paragraph {
   margin: 0;
   line-height: 1.6;
@@ -16,9 +18,9 @@
 }
 
 .normalVariant {
-  color: black;
+  color: $color-text;
 }
 
 .mutedVariant {
-  color: rgba(0, 0, 0, 0.5);
+  color: $color-text-muted;
 }

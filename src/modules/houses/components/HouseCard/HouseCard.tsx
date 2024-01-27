@@ -25,19 +25,6 @@ export default function HouseCard({
   onRemove,
   onEdit,
 }: HouseCardProps) {
-  const menuItems = [
-    {
-      label: "Editar",
-      value: "edit",
-      action: onEdit,
-    },
-    {
-      label: "Remover",
-      value: "remove",
-      action: onRemove,
-    },
-  ]
-
   return (
     <div
       onClick={onClick}
@@ -47,15 +34,14 @@ export default function HouseCard({
     >
       <header className={styles.header}>
         <h4 className={styles.number}>{number}</h4>
-        {Boolean(menuItems[0].action) && (
-          <Dropdown trigger={<BiDotsVerticalRounded />}>
-            {menuItems.map((item, index) => (
-              <Dropdown.Item key={index} onSelect={item.action!}>
-                {item.label}
-              </Dropdown.Item>
-            ))}
-          </Dropdown>
-        )}
+        <Dropdown trigger={<BiDotsVerticalRounded />}>
+          {Boolean(onEdit) && (
+            <Dropdown.Item onSelect={onEdit!}>Editar</Dropdown.Item>
+          )}
+          {Boolean(onRemove) && (
+            <Dropdown.Item onSelect={onRemove!}>Remover</Dropdown.Item>
+          )}
+        </Dropdown>
       </header>
       <p className={styles.street}>{street}</p>
       <p className={styles.type}>{HOUSE_TYPES[type]}</p>

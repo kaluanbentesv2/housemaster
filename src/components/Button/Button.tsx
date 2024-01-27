@@ -5,10 +5,12 @@ import Link from "next/link"
 import { ReactNode } from "react"
 
 import Spinner from "@/components/Spinner"
+import { MapType } from "@/config/maps"
 
 import styles from "./Button.module.scss"
 
 interface ButtonProps {
+  variant?: "primary" | "secondary"
   type?: "submit" | "reset" | "button"
   className?: string
   children: ReactNode
@@ -18,7 +20,13 @@ interface ButtonProps {
   isInline?: boolean
 }
 
+const BUTTON_VARIANTS: MapType = {
+  primary: styles.primary,
+  secondary: styles.secondary,
+}
+
 export default function Button({
+  variant = "primary",
   type = "button",
   children,
   className,
@@ -27,23 +35,23 @@ export default function Button({
   isLoading,
   isInline,
 }: ButtonProps) {
+  const classNameString = clsx(
+    styles.button,
+    isInline && styles.inline,
+    BUTTON_VARIANTS[variant],
+    className
+  )
+
   if (href) {
     return (
-      <Link
-        className={clsx(styles.button, className, isInline && styles.inline)}
-        href={href}
-      >
+      <Link className={classNameString} href={href}>
         {isLoading ? <Spinner /> : children}
       </Link>
     )
   }
 
   return (
-    <button
-      type={type}
-      className={clsx(styles.button, className, isInline && styles.inline)}
-      onClick={onClick}
-    >
+    <button type={type} className={classNameString} onClick={onClick}>
       {isLoading ? <Spinner /> : children}
     </button>
   )

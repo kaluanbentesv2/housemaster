@@ -2,8 +2,9 @@
 
 import { range } from "lodash"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 
+import AlertDialog from "@/components/AlertDialog/AlertDialog"
 import Button from "@/components/Button"
 import Header from "@/components/Header"
 import Heading from "@/components/Heading"
@@ -12,6 +13,7 @@ import House from "@/models/House"
 import HouseCard from "@/modules/houses/components/HouseCard"
 
 import styles from "./HouseListView.module.scss"
+import useDeleteHouse from "../../hooks/useDeleteHouse"
 
 interface HouseListViewProps {
   houses?: House[]
@@ -24,6 +26,19 @@ export default function HouseListView({ houses = [] }: HouseListViewProps) {
   const refresh = searchParams.get("refresh")
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
+  const [currentHouse, setCurrentHouse] = useState<House | undefined>()
+  const { deleteHouse, isLoading, isRefreshing } = useDeleteHouse()
+
+  const handleRemove = (house: House) => {
+    setCurrentHouse(house)
+  }
+
+  const confirmDeletion = async () => {
+    if (currentHouse) {
+      await deleteHouse(currentHouse?.id)
+      setCurrentHouse(undefined)
+    }
+  }
 
   const renderHouseCards = () => {
     return (
@@ -34,7 +49,7 @@ export default function HouseListView({ houses = [] }: HouseListViewProps) {
           street={house.street}
           number={house.number}
           type={house.type}
-          onRemove={() => {}}
+          onRemove={houses.length === 1 ? undefined : () => handleRemove(house)}
           onEdit={() => router.push(`/app/houses/edit/${house.id}`)}
         />
       ))
@@ -42,7 +57,10 @@ export default function HouseListView({ houses = [] }: HouseListViewProps) {
   }
 
   const renderSkeletons = () => {
-    return isPending && range(6).map((key) => <HouseCard.Skeleton key={key} />)
+    return (
+      (isPending || isRefreshing) &&
+      range(6).map((key) => <HouseCard.Skeleton key={key} />)
+    )
   }
 
   useEffect(() => {
@@ -65,6 +83,16 @@ export default function HouseListView({ houses = [] }: HouseListViewProps) {
         {renderSkeletons()}
         {renderHouseCards()}
       </div>
+      <AlertDialog
+        title="Você tem certeza?"
+        description="Essa ação não pode ser desfeita. Isso vai permanentemente deletar a casa."
+        rejectText="Cancelar"
+        confirmText="Confirmar"
+        isOpen={Boolean(currentHouse)}
+        isLoading={isLoading}
+        onReject={() => setCurrentHouse(undefined)}
+        onConfirm={confirmDeletion}
+      />
     </AppLayout>
   )
 }

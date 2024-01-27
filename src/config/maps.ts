@@ -1,4 +1,4 @@
-interface MapType {
+export interface MapType {
   [key: string]: string
 }
 

@@ -72,7 +72,7 @@
 .linkLabel {
   margin: 0;
   line-height: 0;
-  color: rgba(0, 0, 0, 0.5);
+  color: $color-text-muted;
 }
 
 .link {
@@ -80,7 +80,6 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 1rem;
-  color: rgba(0, 0, 0, 0.7);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.875rem;
@@ -91,20 +90,20 @@
   cursor: pointer;
 
   & svg {
-    fill: black;
+    fill: $color-text;
     font-size: 20px;
   }
 
   &:hover {
     & .linkLabel {
-      color: black;
+      color: $color-text;
     }
   }
 }
 
 .linkActive {
   & .linkLabel {
-    color: black;
+    color: $color-text;
     font-weight: 600;
   }
 }
