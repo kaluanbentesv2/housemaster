@@ -64,11 +64,11 @@ model House {
   id            String         @id @default(cuid())
   street        String?
   number        String?
-  userId       String
+  userId        String
   type          HouseType
   housePayments HousePayment[]
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  updatedAt DateTime @updatedAt
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  updatedAt     DateTime       @updatedAt
 }
 
 enum HouseType {
@@ -78,17 +78,17 @@ enum HouseType {
 }
 
 model HousePayment {
-  id      String  @id @default(cuid())
+  id      String   @id @default(cuid())
   houseId String?
-  house   House?  @relation(fields: [houseId], references: [id], onDelete: SetNull)
+  house   House?   @relation(fields: [houseId], references: [id], onDelete: SetNull)
   month   String?
   year    String?
   amount  Decimal?
-  street String?
-  number String?
-  type String?
-  owner String?
-  status  Status  @default(PENDING)
+  street  String?
+  number  String?
+  type    String?
+  owner   String?
+  status  Status   @default(PENDING)
 }
 
 enum Status {
