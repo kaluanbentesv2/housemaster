@@ -80,9 +80,14 @@ enum HouseType {
 model HousePayment {
   id      String  @id @default(cuid())
   houseId String?
-  house   House?  @relation(fields: [houseId], references: [id], onDelete: Cascade)
+  house   House?  @relation(fields: [houseId], references: [id], onDelete: SetNull)
   month   String?
   year    String?
+  amount  Decimal?
+  street String?
+  number String?
+  type String?
+  owner String?
   status  Status  @default(PENDING)
 }
 
